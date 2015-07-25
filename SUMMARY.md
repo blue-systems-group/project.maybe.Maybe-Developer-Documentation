@@ -2,5 +2,11 @@
 
 Add your chapters and articles in the following list:
 
-* [Chapter 1](chapter-1/README.md)
-    * [Article 1](chapter-1/ARTICLE1.md)
+* [Android Library](android-library/README.md)
+    * [Features](android-library/features.md)
+
+* [Backend Server](backend-server/README.md)
+    * [Features](backend-server/features.md)
+
+* [Maybe Syntax](maybe-syntax/README.md)
+    * [Features](maybe-syntax/features.md)
