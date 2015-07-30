@@ -8,7 +8,10 @@
     * [Debug Mode](android-library/debug-mode.md)
 
 * [Backend Server](backend-server/README.md)
-    * [Features](backend-server/features.md)
+    * [Choices](backend-server/choices.md)
+    * [Log Container](backend-server/log-container.md)
+    * [Web Client](backend-server/web-client.md)
+    * [Machine Learning Delivery](backend-server/machine-learning-delivery.md)
 
 * [Maybe Syntax](maybe-syntax/README.md)
     * [Features](maybe-syntax/features.md)

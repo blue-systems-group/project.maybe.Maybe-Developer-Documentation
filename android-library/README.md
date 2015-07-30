@@ -1,4 +1,4 @@
-# Introduction
+# Android Library
 
 Maybe Android Library is a key component for Maybe project. It has several features like: communication with Maybe backend, log collection, etc.
 
