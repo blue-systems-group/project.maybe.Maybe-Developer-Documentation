@@ -161,6 +161,101 @@ Delete a record:
 
     $ curl http://localhost:3000/maybe-api-v1/metadata/testing_inputs.maybe -X DELETE
 
-If success, it will return empty JSONObject with status code `200`. Otherwise, it return a error message wit status code `404`:
+If success, it will return empty JSONObject with status code `200`. If the package name is invalid, it return a error message wit status code `404`:
 
-    {"message":"Could not delete that object."}
+    {"error":"testing_inputs.maybe not found!"}
+
+Otherwise, it return status code `500` with error message:
+
+    { "error": "TypeError: Cannot read property '_id' of undefined" }
+
+## Device
+The devices API is designed for store choices of every device, so we use `deviceid` as key.
+
+### POST
+Create a new record for specific ``deviceid```.
+
+    $ curl http://localhost:3000/maybe-api-v1/devices -d '{"deviceid": "001"}'
+
+If everything good, it will return a JSONObject with status code ```201``` like this:
+
+```json
+{
+    "deviceid": "001",
+    "choices": {
+        "testing_inputs.maybe": {
+            "packageName": "testing_inputs.maybe",
+            "labelJSON": {
+                "simple test": {
+                    "label": "simple test",
+                    "choice": 1
+                },
+                "another test": {
+                    "label": "another test",
+                    "choice": 2
+                },
+                "block test": {
+                    "label": "block test",
+                    "choice": 1
+                },
+                "third block test": {
+                    "label": "third block test",
+                    "choice": 1
+                },
+                "another block test": {
+                    "label": "another block test",
+                    "choice": 0
+                }
+            },
+            "version": 7
+        }
+    }
+}
+```
+
+If the ```deviceid``` is duplicated, its status code ```500```, content like this:
+
+    {"error":"001 conflict!"}
+
+If something wrong, its status code ```409```, content like this:
+
+    { "message": "Could not post that object." }
+
+### GET
+Get all of the devices:
+
+    $ curl http://localhost:3000/maybe-api-v1/devices
+
+Get a device record:
+
+    $ curl http://localhost:3000/maybe-api-v1/devices/001
+
+If success, it will return an array of JSONObjects.
+
+### PUT
+Update a device:
+
+    $ curl http://localhost:3000/maybe-api-v1/devices/001 -X PUT -d '{"gcmid" : "ex5SKkjPzAM:APA91bE7olCAyx4H7RgTmLVFVPl-FoFPH6wRDo1FAyuWsb06HhsCrN4SwttLLR7q6goEjMxAOapNS--Cmt9H186z9PB5dD8BIEtcpdfBJpCILBBx4-eOcoQrvF7xyd76E7I6G49-NGZR"}'
+
+If success, it will return status code 202, and a JSONObject of this device, same as return content of `GET` request.
+
+    $ curl http://localhost:3000/maybe-api-v1/devices/001?callback=0 -X PUT -d '{"gcmid" : "ex5SKkjPzAM:APA91bE7olCAyx4H7RgTmLVFVPl-FoFPH6wRDo1FAyuWsb06HhsCrN4SwttLLR7q6goEjMxAOapNS--Cmt9H186z9PB5dD8BIEtcpdfBJpCILBBx4-eOcoQrvF7xyd76E7I6G49-NGZR"}}'
+
+With `?callback=0` and `PUT` request success, it will only return an empty JSONObject with status code 202:
+
+    {}
+
+TODO: now only `gcmid` is allowed in `PUT`, we need add fields like: `model`, `android version`, `capacity`, etc.
+
+### DELETE
+Delete a record:
+
+    $ curl http://localhost:3000/maybe-api-v1/devices/001 -X DELETE
+
+If success, it will return empty JSONObject with status code `200`. If the `deviceid` is invalid, it return a error message wit status code `404`:
+
+    {"error": "001 not found!"}
+
+Otherwise, it return status code `500` with error message:
+
+    { "error": "TypeError: Cannot read property '_id' of undefined" }
