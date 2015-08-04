@@ -4,11 +4,11 @@ Maybe project let developers be able to defer choices about app behavior that di
 
 Maybe project has three components:
 
-[Android Library](android-library)
+[Android Library](android-library/index.html)
 
-[Backend Server](backend-server)
+[Backend Server](backend-server/index.html)
 
-[Rewriter](maybe-syntax)
+[Rewriter](maybe-syntax/index.html)
 
 This is a documentation for developers usage only! So it'll lack of some background information.
 
