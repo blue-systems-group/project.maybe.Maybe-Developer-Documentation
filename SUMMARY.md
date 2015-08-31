@@ -13,5 +13,5 @@
     * [Web Client](backend-server/web-client.md)
     * [Machine Learning Delivery](backend-server/machine-learning-delivery.md)
 
-* [Maybe Syntax](maybe-syntax/README.md)
-    * [Features](maybe-syntax/features.md)
+* [Maybe Syntax and Rewriter](maybe-syntax/README.md)
+    * [Implementation](maybe-syntax/implementation.md)
