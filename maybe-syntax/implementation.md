@@ -24,6 +24,8 @@ Because polyglot extension need to run start with `java` not `javac`.
 I have a toy implementation repo for this purpose:
 https://github.com/xcv58/gradle-practice-maybe
 
+Perhaps a better way is fork Java/Android plugin and create a new one?
+
 # Android Plugin for Gradle
 You can find:
 1. general introduction from https://developer.android.com/tools/building/plugin-for-gradle.html
