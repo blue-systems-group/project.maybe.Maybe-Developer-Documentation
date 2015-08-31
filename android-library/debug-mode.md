@@ -11,6 +11,6 @@ Developers only need a button/link to start the activity.
 
 Because we don't know the UI of developers' app. The developers are the most familiar person who know where to put the button/link is appropriate.
 
-TODO: get all maybe statements and their choices
+TODO: get all maybe statements and their choices.
 
-This is related with Maybe Rewriter and IDE support.
+We'll implement this in rewriter (polyglot).
