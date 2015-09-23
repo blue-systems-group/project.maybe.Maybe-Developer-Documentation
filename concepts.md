@@ -46,3 +46,5 @@ The complier doesn't know that as well, so it panics.
 
 ## Maybe Label
 The string in `maybe ("label")` is maybe label.
+
+The maybe label **can not contains "." or "$"**! Because we use mongodb to store data. And mongodb doesn't allow "." or "$" as key.
