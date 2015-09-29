@@ -38,14 +38,20 @@ In my experiment, there're 5 tasks is `JavaCompile` type:
 4. `compileReleaseJavaWithJavac`
 5. `compileReleaseUnitTestJavaWithJavac`
 
-I'm not sure could we replace all 5 tasks with custom `JavaExec` type tasks,
-without any compatible issue.
+~~~I'm not sure could we replace all 5 tasks with custom `JavaExec` type tasks, without any compatible issue.~~~
 
-Perhaps we have to dig into the implementation of Android Plugin.
+~~~Perhaps we have to dig into the implementation of Android Plugin.~~~
 
-Learn how to build it: http://tools.android.com/build/gradleplugin
+~~~Learn how to build it: http://tools.android.com/build/gradleplugin~~~
 
-BTW: You need Java 1.6
+~~~BTW: You need Java 1.6~~~
+
+Currently, the [build.gralde](https://github.com/blue-systems-group/project.maybe.android.library/blob/master/demo/build.gradle) already support to build Android Application.
+In short, it insert a task for every `JavaCompile` task to translate maybe syntax to ordinary Java source code.
+
+But we still need solution like Gradle Plugin to do it decently.
+The [evant/gradle-retrolambda](https://github.com/evant/gradle-retrolambda) is a good example.
+It lets developers use `lambda` in Java 6 or 7.
 
 # Android Studio Support
 The IDE can't recognize maybe syntax, so it'll show errors for codes with maybe syntax.
