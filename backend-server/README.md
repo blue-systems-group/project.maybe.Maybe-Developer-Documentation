@@ -9,4 +9,4 @@ The backend have several functions:
 We use [Meteor](https://www.meteor.com/) to develop Maybe backend.
 The backend server provide stateless REST API to communicate with all clients.
 
-The open source repo: https://github.com/xcv58/backend
+The open source repo: https://github.com/blue-systems-group/project.maybe.backend
