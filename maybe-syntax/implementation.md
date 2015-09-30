@@ -53,6 +53,8 @@ But we still need solution like Gradle Plugin to do it decently.
 The [evant/gradle-retrolambda](https://github.com/evant/gradle-retrolambda) is a good example.
 It lets developers use `lambda` in Java 6 or 7.
 
+If we don't have time to publish all our `jar/aar` files to [Maven Central Repository](http://central.sonatype.org/). We can use the [gradle download task](https://github.com/michel-kraemer/gradle-download-task) to download files from our server. But we need first **finish gradle plugin**!
+
 # Android Studio Support
 The IDE can't recognize maybe syntax, so it'll show errors for codes with maybe syntax.
 
