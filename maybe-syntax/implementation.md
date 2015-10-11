@@ -20,11 +20,8 @@ The second step is Gradle integration. You can find more information from [Gradl
 
 The main idea is to **replace all `JavaCompile` tasks to our custom `JavaExec` tasks**.
 Because polyglot extension need to run start with `java` not `javac`.
-
-I have a toy implementation repo for this purpose:
-https://github.com/xcv58/gradle-practice-maybe
-
-Perhaps a better way is fork Java/Android plugin and create a new one?
+But for some reason, the output `class` files of Maybe compiler can't converted to `dex` file.
+So we insert a `java-to-java` task before every `JavaCompile` task.
 
 # Android Plugin for Gradle
 You can find:
@@ -49,11 +46,11 @@ In my experiment, there're 5 tasks is `JavaCompile` type:
 Currently, the [build.gralde](https://github.com/blue-systems-group/project.maybe.android.library/blob/master/demo/build.gradle) already support to build Android Application.
 In short, it insert a task for every `JavaCompile` task to translate maybe syntax to ordinary Java source code.
 
-But we still need solution like Gradle Plugin to do it decently.
-The [evant/gradle-retrolambda](https://github.com/evant/gradle-retrolambda) is a good example.
-It lets developers use `lambda` in Java 6 or 7.
-
 If we don't have time to publish all our `jar/aar` files to [Maven Central Repository](http://central.sonatype.org/). We can use the [gradle download task](https://github.com/michel-kraemer/gradle-download-task) to download files from our server. But we need first **finish gradle plugin**!
+
+Current implementation: https://github.com/blue-systems-group/project.maybe.maybe-gradle-plugin
+
+It has been published to gradle portal: https://plugins.gradle.org/plugin/edu.buffalo.cse.maybe
 
 # Android Studio Support
 The IDE can't recognize maybe syntax, so it'll show errors for codes with maybe syntax.
